@@ -1,0 +1,6 @@
+classes= 2
+train  = /home/yanhe/data/IBM2017/trainval.txt
+valid  = /home/yanhe/data/IBM2017/test.txt
+names = ibm.names
+backup = backup/
+
