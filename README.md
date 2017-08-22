@@ -9,8 +9,7 @@
 
 ![检测示例](http://i.imgur.com/qOVbUtX.png)
 
-训练好的weights文件,40000代结果(GTX 1080Ti上训练1000代时间大约为30分钟)
-
+训练好的[weights文件](http://pan.baidu.com/s/1bppjNQJ)(密码: s7ph),40000代结果(GTX 1080Ti上训练1000代时间大约为30分钟)
 ### 依赖
 yolo v2，推荐[跨windows和linux的版本](https://github.com/AlexeyAB/darknet)
 
@@ -18,12 +17,21 @@ yolo v2，推荐[跨windows和linux的版本](https://github.com/AlexeyAB/darkne
 测试数据量:405
 
 评估结果:
+
 ![评估](evaluate.png)
 
 ### 依赖
 
 ```
 git clone https://github.com/AlexeyAB/darknet
+vim Makefile
+
+GPU=1
+CUDNN=1
+OPENCV=1
+
+make -j8
+
 ```
 
 记下载到本地的路径为DARKNET_ROOT，把本工程置于DARKNET_ROOT下
