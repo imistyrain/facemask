@@ -1,4 +1,15 @@
 #!/bin/bash
-#set pretrainmodel=yolo-ibm_40000.weights
-set pretrainmodel=darknet19_448.conv.23
-../darknet detector train  ibm.data yolo-ibm.cfg ../ $pretrainmodel -gpus 2
+iter=65000
+resume=1
+modelname=ibm
+if [ $resume = 1 ]; then
+pretrainmodel=yolo-"$modelname"_$iter.weights
+backupPath=backup
+else
+pretrainmodel=darknet19_448.conv.23
+backupPath=..
+if [ ! -d "backup" ]; then 
+	mkdir "backup"
+fi
+fi
+../darknet detector train $modelname.data yolo-$modelname.cfg $backupPath/$pretrainmodel -gpus 1,2
